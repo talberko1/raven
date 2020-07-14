@@ -3,7 +3,7 @@ package org.afterblue.raven.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public abstract class RavenKeyboard implements KeyListener {
+public class RavenKeyboard implements KeyListener {
 
 	public static final int AMOUNT = 256;
 	private boolean[] keys;

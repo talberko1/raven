@@ -2,31 +2,43 @@ package org.afterblue.raven.input;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public abstract class RavenMouse implements MouseListener {
+public abstract class RavenMouse implements MouseListener, MouseMotionListener {
 
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 
-	}
+    @Override
+    public void mouseDragged(MouseEvent e) {
 
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void mouseMoved(MouseEvent e) {
 
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void mouseClicked(MouseEvent e) {
 
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void mousePressed(MouseEvent e) {
 
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

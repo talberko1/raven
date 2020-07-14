@@ -1,10 +1,9 @@
 package org.afterblue.raven;
 
+import javax.swing.JFrame;
 import java.awt.Canvas;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
-
-import javax.swing.JFrame;
 
 public class RavenApp extends Canvas implements Runnable {
 
@@ -14,9 +13,9 @@ public class RavenApp extends Canvas implements Runnable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Thread thread;
+	private final Thread thread;
 	private JFrame frame;
-	private String title;
+	private final String title;
 	private boolean running;
 
 	public RavenApp(String threadName, String title) {
@@ -74,17 +73,17 @@ public class RavenApp extends Canvas implements Runnable {
 	private void createWindow(String title) {
 		frame = new JFrame(title);
 		frame.add(this);
-		configure(frame);
+		configureFrame(frame);
 		frame.setFocusable(true);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
-	
-	public void enableFPS() {
-		
+
+	public void configureFrame(JFrame frame) {
+
 	}
 
-	public void configure(JFrame frame) {
+	public void enableFPS() {
 
 	}
 
