@@ -2,7 +2,9 @@ package org.afterblue.raven.ui;
 
 import java.awt.*;
 
-public class RavenButton extends Button {
+import org.afterblue.raven.interfaces.Displayable;
+
+public class RavenButton extends Button implements Displayable {
 
     private int x;
     private int y;
@@ -47,7 +49,15 @@ public class RavenButton extends Button {
         g.drawImage(background, x, y, width, height, null);
     }
 
+    @Override
+    public void init() {
 
+    }
+
+    @Override
+    public void tick() {
+
+    }
 
 
 }

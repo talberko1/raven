@@ -1,25 +1,20 @@
 package org.afterblue.raven.graphics;
 
+import org.afterblue.raven.interfaces.Displayable;
+
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-public class Animation {
+public class Animation implements Displayable {
 	private Texture[] frames;
 	private Timer timer;
 	private int current;
 
 	public Animation(Texture[] frames, int interval) {
 		this.frames = frames;
-		timer = new Timer(interval, new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				update();
-			}
-
+		timer = new Timer(interval, action -> {
+			tick();
 		});
 	}
 	
@@ -27,17 +22,12 @@ public class Animation {
 		this(load(formatPath, amount), interval);
 	}
 
-	public void update() {
-		current++;
-		current %= frames.length;
-	}
-
 	public void run() {
 		timer.start();
 	}
 
-	public void render(Graphics2D g, double x, double y) {
-		frames[current].render(g, x, y);
+	public void display(Graphics2D g, double x, double y) {
+		frames[current].display(g, x, y);
 	}
 	
 	private static Texture[] load(String formatPath, int amount) {
@@ -53,5 +43,21 @@ public class Animation {
 	public void resize(int width, int height) {
 		for (Texture texture : frames)
 			texture.resize(width, height);
+	}
+
+	@Override
+	public void init() {
+
+	}
+
+	@Override
+	public void tick() {
+		current++;
+		current %= frames.length;
+	}
+
+	@Override
+	public void display(Graphics2D g) {
+
 	}
 }

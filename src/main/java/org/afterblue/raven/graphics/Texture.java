@@ -1,5 +1,7 @@
 package org.afterblue.raven.graphics;
 
+import org.afterblue.raven.interfaces.Displayable;
+
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -10,7 +12,7 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
-public class Texture {
+public class Texture implements Displayable {
 	private final static Map<String, BufferedImage> textures = new HashMap<String, BufferedImage>();
 	private BufferedImage image;
 
@@ -36,20 +38,35 @@ public class Texture {
 
 	public void resize(int width, int height) {
 		Image tmp = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-		BufferedImage dimg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
-		Graphics2D g = dimg.createGraphics();
+		Graphics2D g = img.createGraphics();
 		g.drawImage(tmp, 0, 0, null);
 		g.dispose();
 
-		this.image = dimg;
+		this.image = img;
 	}
 
-	public void render(Graphics2D g, double x, double y) {
+	public void display(Graphics2D g, double x, double y) {
 		g.drawImage(image, (int) x, (int) y, null);
 	}
 
 	public BufferedImage getImage() {
 		return image;
+	}
+
+	@Override
+	public void init() {
+
+	}
+
+	@Override
+	public void tick() {
+
+	}
+
+	@Override
+	public void display(Graphics2D g) {
+
 	}
 }
