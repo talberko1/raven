@@ -12,8 +12,8 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
-public class Texture implements Displayable {
-	private final static Map<String, BufferedImage> textures = new HashMap<String, BufferedImage>();
+public class Texture {
+	private final static Map<String, BufferedImage> textures = new HashMap<>();
 	private BufferedImage image;
 
 	public Texture(String file) {
@@ -53,20 +53,5 @@ public class Texture implements Displayable {
 
 	public BufferedImage getImage() {
 		return image;
-	}
-
-	@Override
-	public void init() {
-
-	}
-
-	@Override
-	public void tick() {
-
-	}
-
-	@Override
-	public void display(Graphics2D g) {
-
 	}
 }

@@ -85,18 +85,6 @@ public class RavenApp extends Canvas implements Runnable, Displayable {
 
     }
 
-    public void display(Graphics2D g) {
-
-    }
-
-    public void init() {
-
-    }
-
-    public void tick() {
-
-    }
-
     private void render() {
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
@@ -128,4 +116,18 @@ public class RavenApp extends Canvas implements Runnable, Displayable {
         }
     }
 
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void tick() {
+
+    }
+
+    @Override
+    public void display(Graphics2D g) {
+
+    }
 }
