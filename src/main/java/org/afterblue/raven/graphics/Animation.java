@@ -3,6 +3,7 @@ package org.afterblue.raven.graphics;
 import org.afterblue.raven.interfaces.Displayable;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 import javax.swing.Timer;
 
@@ -16,6 +17,18 @@ public class Animation implements Displayable {
 		timer = new Timer(interval, action -> {
 			tick();
 		});
+	}
+
+	public Animation(BufferedImage[] images, int interval) {
+		this(imagesToTextures(images), interval);
+	}
+
+	public static Texture[] imagesToTextures(BufferedImage[] images) {
+		Texture[] frames = new Texture[images.length];
+		for (int i = 0; i < frames.length; i++) {
+			frames[i] = new Texture(images[i]);
+		}
+		return frames;
 	}
 	
 	public Animation(String formatPath, int amount, int interval) {
